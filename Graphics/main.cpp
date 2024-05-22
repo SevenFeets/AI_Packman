@@ -12,7 +12,7 @@ Game* game;
 
 void init()
 {
-	srand(time(NULL));
+	srand((size_t)time(NULL));
 
 	game = new Game();
 	
@@ -65,7 +65,7 @@ void menu(int choice)
 	
 }
 
-void main(int argc, char* argv[]) 
+int main(int argc, char* argv[]) 
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
@@ -87,4 +87,6 @@ void main(int argc, char* argv[])
 	init();
 
 	glutMainLoop();
+
+	return 0;
 }

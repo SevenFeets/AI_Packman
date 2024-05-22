@@ -62,15 +62,15 @@ bool Character::PlayPacman(Maze& gameInstance)
 	//if Pacman is moving, target is food, change the target to the safest one
 	if (isMoving)
 	{
-		if (previousTarget != nullptr)
+		/*if (previousTarget != nullptr)
 		{
 			if (pacmanTarget->GetSafeDistance() < previousTarget->GetSafeDistance())
 			{
 				this->SetTarget(previousTarget);
 				isWon=MovePacman(gameInstance, this->getTarget());
 			}
-		}
-		else
+		}*/
+		//else
 		{
 			this->SetTarget(pacmanTarget);
 			isWon=MovePacman(gameInstance, this->getTarget());
@@ -83,11 +83,11 @@ bool Character::PlayPacman(Maze& gameInstance)
 
 
 		//checks if the current position is safer than the neighboring cells
-		int risk = assertSafety(gameInstance, pacmanTarget);
+		double risk = assertSafety(gameInstance, pacmanTarget);
 
 		previousTarget = gameInstance.MAZE[pacmanTarget->GetRow() + 1][pacmanTarget->GetColumn()];
 
-		int newRisk = assertSafety(gameInstance, previousTarget);
+		double newRisk = assertSafety(gameInstance, previousTarget);
 		if (newRisk > risk)
 			pacmanTarget = previousTarget;
 
@@ -500,6 +500,7 @@ bool Character::CoinsRisk(Maze& gameInstance)
 		{
 			if (gameInstance.MAZE[i][j]->GetIdentity() == FOOD)
 			{
+				
 				foundCoin = true;
 				// Calculate the safe distance for the coin Cell
 				safeDistance = assertSafety(gameInstance,gameInstance.MAZE[i][j]);

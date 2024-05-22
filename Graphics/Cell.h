@@ -21,9 +21,9 @@ const int			NUM_OF_FOOD = 4;
 class Cell {
 private:
 	int row, column;
-	int h;
-	int g;
-	int f;//A* f=g+h
+	double h;
+	double g;
+	double f;//A* f=g+h
 	Cell* parent;
 	int identity;
 	bool isFood;
@@ -39,9 +39,9 @@ public:
 	~Cell();
 
 	//Getters
-	int			GetH() { return h; }
-	int			GetG() { return g; }
-	int			GetF() { return f; }
+	double			GetH() { return h; }
+	double			GetG() { return g; }
+	double			GetF() { return f; }
 
 	int			GetRow() { return row; }
 	int			GetColumn() { return column; }

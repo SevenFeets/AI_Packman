@@ -12,7 +12,7 @@ Game* game;
 
 void init()
 {
-	srand(time(NULL));
+	srand((size_t)time(NULL));
 
 	game = new Game();
 	
@@ -38,18 +38,18 @@ void idle()
 void menu(int choice)
 {
 
-	/*switch (choice)
+	switch (choice)
 	{
 	case 0:
 		if (!game->IsGhostWon() && !game->IsPacmanWon())
 		{
 			game->PlayGame();
-			display();
+			
 		}
 		break;
 
 	case 1:
-		if (!game->IsGhostWon() && !game->IsPacmanWon())
+		while (!game->IsGhostWon() && !game->IsPacmanWon())
 		{
 			game->PlayGame();
 			display();
@@ -58,11 +58,10 @@ void menu(int choice)
 
 	case 2:
 		srand(static_cast<unsigned int>(time(0)));
-		game->PlayGame();
-		display();
+		game=new Game();
 		break;
 
-	}*/
+	}
 	
 }
 
